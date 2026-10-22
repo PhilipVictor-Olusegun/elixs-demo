@@ -1,68 +1,375 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ELIXS — Shop</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELIXS — Premium Shopping & Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand">
-      <h1>ELIXS</h1>
-      <small>Quality goods, curated for you</small>
-    </div>
-    <nav>
-      <button id="themeToggle" aria-label="Toggle theme">Toggle theme</button>
-      <button id="cartBtn" class="cart-btn" aria-label="Open cart">
-        Cart <span id="cartCount">0</span>
-      </button>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero">
-      <h2>Welcome to ELIXS</h2>
-      <p>Find curated products made for everyday life — simple, useful, and built to last.</p>
-    </section>
-
-    <section id="about" class="about">
-      <h3>About Us</h3>
-      <p>ELIXS is a small online store focused on thoughtful design and durable products.
-         We hand-pick items that make daily life easier and more beautiful. Our promise:
-         clear pricing, honest descriptions, and friendly support.</p>
-    </section>
-
-    <section id="products" class="products">
-      <h3>Products</h3>
-      <div class="product-grid">
-        <article class="product-card" data-id="p1" data-name="Everyday Mug" data-price="12.99">
-          <img src="https://via.placeholder.com/300x200?text=Everyday+Mug" alt="Everyday Mug">
-          <h4>Everyday Mug</h4>
-          <p class="price">$12.99</p>
-          <button class="add-btn">Add to cart</button>
-        </article>
-
-        <article class="product-card" data-id="p2" data-name="Cotton Tote" data-price="15.50">
-          <img src="https://via.placeholder.com/300x200?text=Cotton+Tote" alt="Cotton Tote">
-          <h4>Cotton Tote</h4>
-          <p class="price">$15.50</p>
-          <button class="add-btn">Add to cart</button>
-        </article>
-
-        <article class="product-card" data-id="p3" data-name="Notebook" data-price="9.00">
-          <img src="https://via.placeholder.com/300x200?text=Notebook" alt="Notebook">
-          <h4>Notebook</h4>
-          <p class="price">$9.00</p>
-          <button class="add-btn">Add to cart</button>
-        </article>
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <h1>ELIXS</h1>
       </div>
-    </section>
-  </main>
+      <ul class="nav-links">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="search-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <button class="cart-btn" id="cartBtn" aria-label="View cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-  <footer>
-    <p>&copy; <span id="year"></span> ELIXS — All rights reserved.</p>
+  <!-- Hero Section with Video Background -->
+  <section class="hero">
+    <div class="hero-video-container">
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-tech-workspace-with-laptop-and-gadgets-34478-large.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <h2 class="hero-title">Elevate Your Lifestyle</h2>
+      <p class="hero-subtitle">Premium products and trusted services, delivered to your doorstep</p>
+      <div class="hero-badges">
+        <span class="badge-pill">🚚 Free Delivery on All Orders</span>
+        <span class="badge-pill">🎁 Spend ₦10,000+ Get a Free Gift</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#products" class="btn btn-primary">Shop Now</a>
+        <a href="#services" class="btn btn-secondary">Browse Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promo Banner -->
+  <div class="promo-banner">
+    <div class="promo-content">
+      <span class="promo-icon">🎉</span>
+      <p><strong>Limited Time Offer:</strong> Buy products worth ₦10,000 or more and choose a FREE bonus item!</p>
+    </div>
+  </div>
+
+  <!-- Category Navigation -->
+  <section class="categories">
+    <div class="container">
+      <div class="category-grid">
+        <button class="category-card active" data-category="all">
+          <div class="category-icon">🛍️</div>
+          <h3>All Products</h3>
+        </button>
+        <button class="category-card" data-category="electronics">
+          <div class="category-icon">💻</div>
+          <h3>Electronics</h3>
+        </button>
+        <button class="category-card" data-category="fashion">
+          <div class="category-icon">👔</div>
+          <h3>Fashion</h3>
+        </button>
+        <button class="category-card" data-category="gadgets">
+          <div class="category-icon">📱</div>
+          <h3>Smart Gadgets</h3>
+        </button>
+        <button class="category-card" data-category="daily">
+          <div class="category-icon">🏠</div>
+          <h3>Daily Essentials</h3>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured Products</h2>
+        <p>Curated selection of premium items</p>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <!-- Products will be loaded by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Local Services</h2>
+        <p>Trusted professionals near you</p>
+      </div>
+
+      <div class="location-selector">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <input type="text" id="locationInput" placeholder="Enter your location to find nearby services">
+        <button class="btn-locate" id="locateBtn">Detect Location</button>
+      </div>
+
+      <div class="services-grid" id="servicesGrid">
+        <!-- Services will be loaded by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Welcome to ELIXS</h2>
+          <p>We're redefining the shopping experience by bringing together premium products and trusted local services in one seamless platform.</p>
+          <p>Every product ships with <strong>free delivery</strong>, and when you spend ₦10,000 or more, choose a complimentary gift from our exclusive bonus collection.</p>
+          <div class="about-features">
+            <div class="feature-item">
+              <span class="feature-icon">✓</span>
+              <div>
+                <h4>Premium Quality</h4>
+                <p>Every product is carefully curated</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">✓</span>
+              <div>
+                <h4>Verified Professionals</h4>
+                <p>All service providers are vetted</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">✓</span>
+              <div>
+                <h4>Free Delivery</h4>
+                <p>On every single order, no minimums</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop" alt="Premium shopping experience">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-content">
+        <h2>Get in Touch</h2>
+        <p>Have questions? We're here to help</p>
+        <div class="contact-methods">
+          <a href="mailto:hello@elixs.com" class="contact-card">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>hello@elixs.com</span>
+          </a>
+          <a href="tel:+2348012345678" class="contact-card">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>+234 801 234 5678</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>ELIXS</h3>
+          <p>Premium products and trusted services, all in one place.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Customer Service</h4>
+          <ul>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Stay Connected</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="WhatsApp">💬</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> ELIXS. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
+
+  <!-- Cart Modal -->
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-modal-content">
+      <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button class="close-btn" id="closeCart" aria-label="Close cart">&times;</button>
+      </div>
+      <div class="cart-body">
+        <div class="cart-items" id="cartItems">
+          <!-- Cart items will be inserted here -->
+        </div>
+        <div class="cart-checkout-section">
+          <button class="btn btn-primary btn-block btn-checkout" id="checkoutBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+              <line x1="1" y1="10" x2="23" y2="10"></line>
+            </svg>
+            Proceed to Checkout
+          </button>
+        </div>
+      </div>
+      <div class="cart-promo" id="cartPromo">
+        <!-- Promo messages will appear here -->
+      </div>
+      <div class="bonus-section" id="bonusSection" style="display: none;">
+        <h4>🎁 Choose Your Free Bonus Item</h4>
+        <div class="bonus-items" id="bonusItems">
+          <!-- Bonus items will be loaded here -->
+        </div>
+      </div>
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="cartSubtotal">₦0.00</span>
+        </div>
+        <div class="summary-row delivery">
+          <span>Delivery:</span>
+          <span class="free-badge">FREE</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total:</span>
+          <span id="cartTotal">₦0.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Detail Modal -->
+  <div class="product-modal" id="productModal">
+    <div class="product-modal-content">
+      <button class="close-btn modal-close" id="closeProduct" aria-label="Close">&times;</button>
+      <div class="product-detail">
+        <div class="product-gallery">
+          <div class="main-image-container">
+            <img id="mainProductImage" src="" alt="" class="main-product-image">
+          </div>
+          <div class="thumbnail-strip" id="thumbnailStrip">
+            <!-- Thumbnails will be loaded here -->
+          </div>
+        </div>
+        <div class="product-details-info">
+          <div class="product-detail-category" id="detailCategory"></div>
+          <h2 class="product-detail-name" id="detailName"></h2>
+          <div class="product-detail-price" id="detailPrice"></div>
+          <div class="product-detail-rating">
+            <span class="stars">⭐⭐⭐⭐⭐</span>
+            <span class="rating-count" id="ratingCount">(124 reviews)</span>
+          </div>
+
+          <div class="product-detail-description" id="detailDescription"></div>
+
+          <div class="variant-section">
+            <h4>Color</h4>
+            <div class="color-options" id="colorOptions">
+              <!-- Color options will be loaded here -->
+            </div>
+          </div>
+
+          <div class="variant-section">
+            <h4>Size / Variant</h4>
+            <div class="size-options" id="sizeOptions">
+              <!-- Size options will be loaded here -->
+            </div>
+          </div>
+
+          <div class="quantity-section">
+            <h4>Quantity</h4>
+            <div class="quantity-controls-large">
+              <button class="quantity-btn-large" id="decreaseQty">−</button>
+              <input type="number" id="productQty" value="1" min="1" max="99">
+              <button class="quantity-btn-large" id="increaseQty">+</button>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-block btn-add-large" id="addToCartFromDetail">
+            Add to Cart
+          </button>
+
+          <div class="product-features">
+            <div class="feature-badge">🚚 Free Delivery</div>
+            <div class="feature-badge">✓ In Stock</div>
+            <div class="feature-badge">🔒 Secure Payment</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews-section">
+        <h3>Customer Reviews</h3>
+        <div class="reviews-list" id="reviewsList">
+          <!-- Reviews will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
